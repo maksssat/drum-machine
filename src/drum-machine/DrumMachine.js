@@ -73,13 +73,14 @@ export default class DrumMachine extends React.Component {
     this.state = {
       display: "",
       volume: "1.0",
+      clicks: 0,
     };
     this.handlePlay = this.handlePlay.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
   handlePlay(e) {
-    this.setState({ display: e });
+    this.setState((state) => ({ display: e, clicks: state.clicks + 1 }));
   }
 
   handleChange(e) {
