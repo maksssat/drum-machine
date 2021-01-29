@@ -1,1 +1,59 @@
+#root > * {
+  min-width: 0;
+}
 
+#drum-machine {
+  flex: 1 0 0px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+#drumpad-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  width: 95vmin;
+  max-width: 400px;
+  height: 95vmin;
+  max-height: 400px;
+  margin-bottom: 30px;
+  flex: 0 0 auto;
+}
+
+.drum-pad {
+  flex: 0 0 30%;
+  height: 30%;
+  border: 1px solid rgb(231, 231, 231);
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow: -5px 5px 13px #c5c5c5, 5px -5px 13px #fbfbfb;
+  font-size: 20px;
+}
+
+.drum-pad:focus {
+  outline: none;
+}
+
+.drum-pad:active {
+  border-radius: 15px;
+  background: #ebebeb;
+  box-shadow: inset -5px 5px 18px #a6a6a6, inset 5px -5px 18px #ffffff;
+}
+
+#control-wrapper {
+  display: flex;
+  flex-flow: column;
+  flex: 0 0 300px;
+  min-width: auto;
+}
+
+#display {
+  background-color: #fff;
+  margin-bottom: 40px;
+  border-radius: 10px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 20px;
+}
