@@ -4,7 +4,13 @@ export default function DrumPad(props) {
   const audio = useRef(null);
   const button = useRef(null);
 
-  function handleMouseDown(e) {
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyDown);
+    audio.current.volume = props.volume;
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  });
+
+  function handleClick(e) {
     audio.current.play();
     props.onPlay(e.target.id);
   }
@@ -13,21 +19,19 @@ export default function DrumPad(props) {
     if (e.keyCode === props.keyCode) {
       audio.current.play();
       props.onPlay(audio.current.dataset.id);
+      button.current.classList.add("pressed");
+      setTimeout(() => {
+        button.current.classList.remove("pressed");
+      }, 100);
     }
   }
-
-  useEffect(() => {
-    document.addEventListener("keydown", handleKeyDown);
-    audio.current.volume = props.volume;
-    return () => document.removeEventListener("keydown", handleKeyDown);
-  });
 
   return (
     <button
       ref={button}
       id={props.id}
       className="drum-pad"
-      onMouseDown={handleMouseDown}
+      onClick={handleClick}
     >
       {props.value}
       <audio

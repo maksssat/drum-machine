@@ -87,12 +87,16 @@ export default class DrumMachine extends React.Component {
     this.setState({ volume: e.target.value });
   }
 
-  componentDidUpdate() {
-    if (this.state.display !== "") {
-      setTimeout(() => {
-        this.setState({ display: "" });
-      }, 1000);
+  displayClear(x) {
+    if (this.state.clicks === x) {
+      this.setState({ display: "" });
     }
+  }
+
+  componentDidUpdate() {
+    const clicks = this.state.clicks;
+    const displayClear = this.displayClear.bind(this, clicks);
+    setTimeout(displayClear, 2000);
   }
 
   render() {

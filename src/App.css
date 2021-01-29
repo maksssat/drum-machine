@@ -7,6 +7,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
+  padding: 10px;
 }
 
 #drumpad-wrapper {
@@ -35,7 +36,8 @@
   outline: none;
 }
 
-.drum-pad:active {
+.drum-pad:active,
+.pressed {
   border-radius: 15px;
   background: #ebebeb;
   box-shadow: inset -5px 5px 18px #a6a6a6, inset 5px -5px 18px #ffffff;
